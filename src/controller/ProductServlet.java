@@ -284,12 +284,7 @@ public class ProductServlet extends HttpServlet {
 	}
 
 
-	/*
-	 * This method will be called from the switch statement in the 
-	 * doGet() and it forwards on the request (to show the insert new
-	 * product form) onto the insertproduct.jsp.  A RequestDispatcher is 
-	 * used to forward on the request to the JSP page. 
-	 */
+
 	private void showInsertForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		RequestDispatcher dispatcher = request.getRequestDispatcher(
 				"\\WEB-INF\\view\\insertproduct.jsp");
