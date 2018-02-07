@@ -127,7 +127,7 @@ public class ProductServlet extends HttpServlet {
 	
 	private void viewCart(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		RequestDispatcher dispatcher = request.getRequestDispatcher(
-				"\\WEB-INF\\view\\viewCart.jsp");
+				"\\WEB-INF\\view\\viewShoppingList.jsp");
 		dispatcher.forward(request, response);
 	}
 	
@@ -194,7 +194,7 @@ public class ProductServlet extends HttpServlet {
 		if (session.getAttribute("username") == null)
 			response.sendRedirect("LoginServlet?action=showLoginForm");
 		else // otherwise the user is logged in, so view all the products
-			response.sendRedirect("productServlet?action=viewAll");
+			response.sendRedirect("ProductServlet?action=viewAll");
 	}
 	
 	private void searchForRecipe(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -230,7 +230,7 @@ public class ProductServlet extends HttpServlet {
 		productDao.updateProduct(productToUpdate);
 		
 		// request is complete, redirect the response to a 'viewAll'
-		response.sendRedirect("productServlet?action=viewAll");
+		response.sendRedirect("ProductServlet?action=viewAll");
 	}
 	
 	private void showUpdateForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -243,7 +243,7 @@ public class ProductServlet extends HttpServlet {
 		/* Pass that product onto the JSP using request.setAttribute() */
 		request.setAttribute("product", product);
 		RequestDispatcher dispatcher = request.getRequestDispatcher(
-				"\\WEB-INF\\view\\updateproduct.jsp");
+				"\\WEB-INF\\view\\updateProduct.jsp");
 		dispatcher.forward(request, response);
 	}
 	
@@ -253,7 +253,7 @@ public class ProductServlet extends HttpServlet {
 		// Send that productId to the DAO to delete the product
 		productDao.deleteProduct(productId);
 		// request done! product deleted, now show all products
-		response.sendRedirect("productServlet?action=viewAll");
+		response.sendRedirect("ProductServlet?action=viewAll");
 	}
 	
 	private void insertProduct(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -280,7 +280,7 @@ public class ProductServlet extends HttpServlet {
 		 * now, which is to view all of the products. To start a new 
 		 * request from this method and go back into this Servlet
 		 * and into the doGet() method, you use response.sendRedirect() */
-		response.sendRedirect("productServlet?action=viewAll");
+		response.sendRedirect("ProductServlet?action=viewAll");
 	}
 
 
