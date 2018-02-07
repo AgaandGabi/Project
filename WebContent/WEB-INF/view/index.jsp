@@ -23,6 +23,7 @@
 </c:if>
 
 <!-- this is an index page -->
+<!-- 07/02/2018 at 12:52 -->
 <div class="loginLinks">
 <!-- When the 'username' attribute is not null, somebody is logged
      in. Otherwise display a 'login' link. -->

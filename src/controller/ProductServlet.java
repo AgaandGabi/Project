@@ -287,7 +287,7 @@ public class ProductServlet extends HttpServlet {
 
 	private void showInsertForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		RequestDispatcher dispatcher = request.getRequestDispatcher(
-				"\\WEB-INF\\view\\insertproduct.jsp");
+				"\\WEB-INF\\view\\insertProduct.jsp");
 		dispatcher.forward(request, response);
 	}
 	
@@ -300,7 +300,7 @@ public class ProductServlet extends HttpServlet {
 		request.setAttribute("listOfproducts", listOfproducts);
 		/* Open the JSP page */
 		RequestDispatcher dispatcher = request.getRequestDispatcher(
-				"\\WEB-INF\\view\\viewproducts.jsp");
+				"\\WEB-INF\\view\\index.jsp");
 		dispatcher.forward(request, response);
 	}
 }
