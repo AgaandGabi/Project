@@ -218,7 +218,7 @@ public class ProductServlet extends HttpServlet {
 		// Get all the parameters from the update JSP
 		int productId = Integer.parseInt(request.getParameter("productId"));
 		String name = request.getParameter("name");
-		String weight = request.getParameter("weight");
+		BigDecimal weight = new BigDecimal(request.getParameter("weight"));
 		String description = request.getParameter("description");
 		BigDecimal price = new BigDecimal(request.getParameter("price"));
 		int quantity = Integer.parseInt(request.getParameter("quantity"));
@@ -261,7 +261,7 @@ public class ProductServlet extends HttpServlet {
 		// title, author, description and price.
 		int productId = Integer.parseInt(request.getParameter("productId"));
 		String name = request.getParameter("name");
-		String weight = request.getParameter("weight");
+		BigDecimal weight = new BigDecimal(request.getParameter("weight"));
 		String description = request.getParameter("description");
 		BigDecimal price = new BigDecimal(request.getParameter("price"));
 		int quantity = Integer.parseInt(request.getParameter("quantity"));
