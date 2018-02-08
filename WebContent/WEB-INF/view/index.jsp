@@ -21,7 +21,7 @@
 
 	<a href="BookServlet?action=viewCart">View shopping cart: ${count} item(s)</a>
 </c:if>
-
+<!-- changes -->
 
 <div class="loginLinks">
 <!-- When the 'username' attribute is not null, somebody is logged
