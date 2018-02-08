@@ -1,28 +1,46 @@
 @charset "ISO-8859-1";
+*{margin: 0px;
+padding: 0px;}
 html, body {
 	height: 100%;
-	padding-left: 10px;
 	width: 100%;
+	
 }
 
 a {
-	color: white;
+	color: black;
 }
 
 body {
 	margin: 0;
-	background: linear-gradient(45deg, #49a09d, #5f2c82);
+	background: linear-gradient(45deg,  rgba(225, 225, 225, 0.6), #ffffff);
 	font-family: sans-serif;
 	font-weight: 100;
 }
+main{
+	margin: 0 auto;
+	width:95%;
+	padding: 20px;
+}
+footer{
+	width:80%;
+	margin: 0 auto;
+
+}
+footer p{margin: 0 auto; text-align: centre; width: 20%}
+
+h1 {
+	color: black;
+	font-family: sans-serif;
+}
 
 h2 {
-	color: white;
+	color: gray;
 	font-family: sans-serif;
 }
 
 p {
-	color: white;
+	color: black;
 	font-family: sans-serif;
 }
 
@@ -31,24 +49,26 @@ p {
 	height:16px;
 }
 .container {
-	position: absolute;
-	top: 50%;
-	left: 50%;
+	margin:0 auto;
 	transform: translate(-50%, -50%);
+	margin-top:50px;
+
 }
+.loginLinks{padding: 20px;}
 
 table {
-	width: 95%;
+	width: 80%;
 	border-collapse: collapse;
 	overflow: hidden;
-	box-shadow: 0 0 20px rgba(0,0,0,0.1);
+	box-shadow: 0 0 20px rgba(0,0,0,0.2);
+	margin:0 auto;
 }
 
 th,
 td {
 	padding: 15px;
 	background-color: rgba(255,255,255,0.2);
-	color: #fff;
+	color: #000;
 }
 
 th {
