@@ -280,7 +280,7 @@ public class ProductServlet extends HttpServlet {
 		 * now, which is to view all of the products. To start a new 
 		 * request from this method and go back into this Servlet
 		 * and into the doGet() method, you use response.sendRedirect() */
-		response.sendRedirect("productServlet?action=viewAll");
+		response.sendRedirect("ProductServlet?action=viewAll");
 	}
 
 
@@ -305,7 +305,7 @@ public class ProductServlet extends HttpServlet {
 		request.setAttribute("listOfproducts", listOfproducts);
 		/* Open the JSP page */
 		RequestDispatcher dispatcher = request.getRequestDispatcher(
-				"\\WEB-INF\\view\\viewproducts.jsp");
+				"\\WEB-INF\\view\\index.jsp");
 		dispatcher.forward(request, response);
 	}
 }
