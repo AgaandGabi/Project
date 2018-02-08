@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>View Shopping Cart</title>
+<title>View Shopping List</title>
 <style><%@include file="/WEB-INF/css/style.css"%></style> 
 </head>
 <body>

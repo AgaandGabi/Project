@@ -8,7 +8,7 @@
 <style><%@include file="/WEB-INF/css/style.css"%></style> 
 </head>
 <body>
-<h2>Search by title or author</h2>
+<h2>Recipes + search</h2>
 
 <form action="BookServlet?action=searchForBooks" method="post">
 	<p>Enter Search Text</p>

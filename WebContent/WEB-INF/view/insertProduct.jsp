@@ -9,10 +9,10 @@
 </head>
 <body>
 <h2>Insert details for a Book</h2>
-<form action="BookServlet?action=insertNewBook" method="post">
-	<p>Title</p>
+<form action="ProductServlet?action=insertNewBook" method="post">
+	<p>Name</p>
 	<p><input type="text" name="title" placeholder="title" required></p>
-	<p>Author</p>
+	<p>Description</p>
 	<p><input type="text" name="author" placeholder="author" required></p>
 	<p>Description</p>
 	<p><textarea rows="4" cols="50" name="description" 
