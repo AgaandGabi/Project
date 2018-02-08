@@ -20,7 +20,7 @@ import model.Product;
  * Servlet implementation class ProductServlet
  */
 @WebServlet(
-		description = "This Servlet serves all product shop requests", 
+		description = "This Servlet serves all food items", 
 		urlPatterns = { 
 				"/ProductServlet", 
 				"/Shoppinglist"
