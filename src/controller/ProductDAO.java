@@ -83,7 +83,10 @@ public class ProductDAO {
 		}
 	}
 	
-	// 4 LOC: open session, get the book, close session, return the book
+	
+	
+	
+	
 	public Product getProductById(int productId) {
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		Product product = session.get(Product.class, productId);
@@ -111,7 +114,7 @@ public class ProductDAO {
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		// Add on wildcard characters onto the searchText
 		searchText = "%" + searchText + "%";
-		String hql = "FROM Product WHERE " + searchType + " LIKE :text";
+		String hql = "FROM Product WHERE" + searchType + " LIKE :text";
 		Query<Product> query = session.createQuery(hql);
 		query.setParameter("text", searchText);
 	    List<Product> listOfProducts = query.list();
