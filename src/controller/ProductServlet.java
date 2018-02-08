@@ -305,7 +305,7 @@ public class ProductServlet extends HttpServlet {
 		request.setAttribute("listOfproducts", listOfproducts);
 		/* Open the JSP page */
 		RequestDispatcher dispatcher = request.getRequestDispatcher(
-				"\\WEB-INF\\view\\index.jsp");
+				"\\WEB-INF\\view\\viewproducts.jsp");
 		dispatcher.forward(request, response);
 	}
 }
