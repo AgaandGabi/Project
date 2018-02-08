@@ -9,13 +9,9 @@ import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
 import model.Product;
-/**
- * DAO stands for Data Access Object, this is an object for accessing
- * data. It could access a database, an XML file or in this case, it 
- * accesses a List. Each method in this class will manipulate the 
- * list, e.g. add to list, remove from the list, update the list, 
- * get the list, etc. 
- */
+
+
+
 public class ProductDAO {
 	
 	public List<Product> getAllProducts() {	
@@ -107,7 +103,7 @@ public class ProductDAO {
 		}
 	}
 	
-	protected List<Product> searchRecipes(String searchType, String searchText) {
+	protected List<Product> searchProduct(String searchType, String searchText) {
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		// Add on wildcard characters onto the searchText
 		searchText = "%" + searchText + "%";

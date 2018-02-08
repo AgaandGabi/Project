@@ -201,7 +201,7 @@ public class ProductServlet extends HttpServlet {
 		String searchText = request.getParameter("searchText"); // text field
 		String searchType = request.getParameter("searchType"); // title/author
 		
-		List<Product> listOfProducts = productDao.searchRecipes(searchType, searchText);
+		List<Product> listOfProducts = productDao.searchProduct(searchType, searchText);
 		request.setAttribute("listOfproducts", listOfProducts);
 		
 		request.getRequestDispatcher("\\WEB-INF\\view\\viewproducts.jsp")
@@ -218,7 +218,7 @@ public class ProductServlet extends HttpServlet {
 		// Get all the parameters from the update JSP
 		int productId = Integer.parseInt(request.getParameter("productId"));
 		String name = request.getParameter("name");
-		String weight = request.getParameter("weight");
+		BigDecimal weight = new BigDecimal(request.getParameter("weight"));
 		String description = request.getParameter("description");
 		BigDecimal price = new BigDecimal(request.getParameter("price"));
 		int quantity = Integer.parseInt(request.getParameter("quantity"));
@@ -261,7 +261,7 @@ public class ProductServlet extends HttpServlet {
 		// title, author, description and price.
 		int productId = Integer.parseInt(request.getParameter("productId"));
 		String name = request.getParameter("name");
-		String weight = request.getParameter("weight");
+		BigDecimal weight = new BigDecimal(request.getParameter("weight"));
 		String description = request.getParameter("description");
 		BigDecimal price = new BigDecimal(request.getParameter("price"));
 		int quantity = Integer.parseInt(request.getParameter("quantity"));
