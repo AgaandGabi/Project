@@ -202,7 +202,7 @@ public class ProductServlet extends HttpServlet {
 		String searchType = request.getParameter("searchType"); // title/author
 		
 		List<Product> listOfProducts = productDao.searchRecipes(searchType, searchText);
-		request.setAttribute("listOfproducts", listOfProducts);
+		request.setAttribute("listOfProducts", listOfProducts);
 		
 		request.getRequestDispatcher("\\WEB-INF\\view\\viewproducts.jsp")
 						.forward(request, response);
