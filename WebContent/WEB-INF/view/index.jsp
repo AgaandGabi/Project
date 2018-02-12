@@ -11,7 +11,7 @@
 <style><%@include file="/WEB-INF/css/style.css"%></style> 
 
 </head>
-<body>
+<body background="images/1.jpg">
 <nav>
 <div class="topnav" id="myTopnav">
   <a href="index.jsp" class="active">Soap</a>

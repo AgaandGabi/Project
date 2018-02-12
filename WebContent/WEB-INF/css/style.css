@@ -13,10 +13,10 @@ a {
 
 body {
 	margin: 0;
-	background: linear-gradient(45deg,  rgba(225, 225, 225, 0.6), #ffffff);
 	font-family: sans-serif;
 	font-weight: 100;
 }
+
 main{
 	margin: 0 auto;
 	width:80%;
@@ -29,7 +29,6 @@ footer{
 	margin: 0 auto;
 	padding-top:50px;
 	padding-bottom: 50px;
-
 }
 footer p{margin: 0 auto; text-align: centre; width: 20%;}
 
@@ -66,14 +65,14 @@ p {
 	border: 1px solid green;	
 	margin-top: 50px;
 	text-align: centre;
-	text-size: 20px;
+	font-size: 20px;
 }
 .mainpage a{
-	text-align: centre;
+	text-align: center;
 	text-decoration: none;
 	color: green;
 	margin:0 auto;
-	width: 24%;
+	width: 100%;
 	display: block;
 	margin-top: 135px;
 	}
@@ -116,6 +115,14 @@ p {
 	width:75%;
 	margin: 50px auto;
    }
+   .five a{
+   text-align:center;
+	text-decoration: none;
+	color: green;
+	margin:0 auto;
+	width: 100%;
+	display: block;
+	margin-top: 40px;}
 
 
 /* start - login and search styles*/
@@ -232,24 +239,27 @@ Horizontal Nav bar
 */
 /* Add a black background color to the top navigation */
 .topnav {
+	
     background-color: #333;
     overflow: hidden;
 }
 
 /* Style the links inside the navigation bar */
 .topnav a {
+	
     float: left;
     display: block;
     color: #f2f2f2;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
+    padding-top:25px;
     font-size: 17px;
 }
 
 /* Change the color of links on hover */
 .topnav a:hover {
-    background-color: #ddd;
+    background-color: #fff;
     color: black;
 }
 
