@@ -26,7 +26,7 @@
 
 <main>
 <h1>Eating Healthy Page....</h1>
-<h2>in production....</h2>
+<h2>in production.......</h2>
 
 </main><!-- end of main -->
 
