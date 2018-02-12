@@ -1,41 +1,45 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<!DOCTYPE HTML>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert new Book</title>
+<title>Search Page</title>
 <style><%@include file="/WEB-INF/css/style.css"%></style> 
 </head>
 <body>
-<h2>Insert details for a Book</h2>
-<form action="ProductServlet?action=insertNewBook" method="post">
-	<p>Name</p>
-	<p><input type="text" name="title" placeholder="title" required></p>
-	<p>Description</p>
-	<p><input type="text" name="author" placeholder="author" required></p>
-	<p>Description</p>
-	<p><textarea rows="4" cols="50" name="description" 
-	    placeholder="description"></textarea></p>
-	<p>Price</p>
-	<p><input type="text" name="price" placeholder="price"></p>	
-	
-	<p><input type="submit" value="Insert"></p>
-</form>
+
 <nav>
 <div class="topnav" id="myTopnav">
-  <a href="#home" class="active">Home</a>
-  <a href="#news">Ingredients</a>
-  <a href="#contact">Recipes</a>
-  <a href="#about">Shopping list</a>
-  <a href="index.jsp">Meal plans</a>
-  <a href="cre.jsp">Eating healthy</a>
-  <a href="#contact">Contact</a>
-  <a href="#about">About</a>
+    <a href="index.jsp">Soap</a>
+  <a href="displayProduct.jsp">Ingredients</a>
+  <a href="searchRecipes.jsp" class="active">Recipes</a>
+  <a href="viewShoppingList.jsp">Shopping list</a>
+  <a href="mealPlanner.jsp">Meal plans</a>
+  <a href="eatingHealthy.jsp">Eating healthy</a>
+  <a href="contact.jsp">Contact</a>
+  <a href="about.jsp">About</a>
   <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
 </div>
 </nav>
 
+<main>
+<h1>searchRecipes.jsp</h1>
+<h2>Recipes + search</h2>
+
+<form action="ProductServlet?action=searchForProducts" method="post">
+	<p>Enter Search Text</p>
+	<input type="text" name="searchText" placeholder="Type here" >
+	
+	<select name="searchType">
+		<option value="title">Title</option>
+		<option value="author">Author</option>
+	</select>
+	<input type="submit" value="Search"> 
+
+</form>
 
 <c:if test="${cart != null && !cart.isEmpty()}">
 
@@ -71,10 +75,12 @@
 <a href="ProductServlet?action=showSearchForm">Search</a>
 </p>
 </div>
-</main>
+</main><!-- end of main -->
+
 <footer>
 <p>@copyright Aga&Gabi 2018</p>
 </footer>
+
 <script type="text/javascript">
 /* Toggle between adding and removing the "responsive" class to topnav when the user clicks on the icon */
 function myFunction() {
