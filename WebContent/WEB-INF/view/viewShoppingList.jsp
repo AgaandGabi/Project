@@ -3,7 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
     
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE HTML>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -11,6 +11,23 @@
 <style><%@include file="/WEB-INF/css/style.css"%></style> 
 </head>
 <body>
+
+<nav>
+<div class="topnav" id="myTopnav">
+  <a href="index.jsp">Soap</a>
+  <a href="displayProduct.jsp">Ingredients</a>
+  <a href="searchRecipes.jsp">Recipes</a>
+  <a href="viewShoppingList.jsp" class="active">Shopping list</a>
+  <a href="mealPlanner.jsp">Meal plans</a>
+  <a href="eatingHealthy.jsp">Eating healthy</a>
+  <a href="contact.jsp">Contact</a>
+  <a href="about.jsp">About</a>
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
+</div>
+</nav>
+
+<main>
+<h1>viewShoppingList.jsp</h1>
 <h2>View Shopping Cart</h2>
 
 <table>
@@ -56,20 +73,6 @@ Total cost : &euro;${total}
 <p><a href="BookServlet?action=clearCart">Clear Shopping Cart</a></p>
 
 
-<nav>
-<div class="topnav" id="myTopnav">
-  <a href="#home" class="active">Home</a>
-  <a href="#news">Ingredients</a>
-  <a href="#contact">Recipes</a>
-  <a href="#about">Shopping list</a>
-  <a href="index.jsp">Meal plans</a>
-  <a href="cre.jsp">Eating healthy</a>
-  <a href="#contact">Contact</a>
-  <a href="#about">About</a>
-  <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
-</div>
-</nav>
-
 
 <c:if test="${cart != null && !cart.isEmpty()}">
 
@@ -105,10 +108,12 @@ Total cost : &euro;${total}
 <a href="ProductServlet?action=showSearchForm">Search</a>
 </p>
 </div>
-</main>
+</main><!-- end of main -->
+
 <footer>
 <p>@copyright Aga&Gabi 2018</p>
 </footer>
+
 <script type="text/javascript">
 /* Toggle between adding and removing the "responsive" class to topnav when the user clicks on the icon */
 function myFunction() {
