@@ -6,6 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+
 <title>Display Products</title>
 <style><%@include file="/WEB-INF/css/style.css"%></style> 
 </head>
@@ -21,14 +22,15 @@
   <a href="eatingHealthy.jsp">Eating healthy</a>
   <a href="contact.jsp">Contact</a>
   <a href="about.jsp">About</a>
+
   <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
 </div>
 </nav>
 
+
 <main>
 <h1>displayProducts.jsp</h1>
 <h2>Shopping list</h2>
-<c:if test="${cart != null && !cart.isEmpty()}">
 
 	<c:forEach var="item" items="${cart}">
 		<c:set var="count" value="${count + item.value}"></c:set>
@@ -95,6 +97,7 @@
 <a href="ProductServlet?action=showSearchForm">Search</a>
 </p>
 
+
 <!-- end of displayProduct -->
 
 
@@ -103,6 +106,7 @@
 <footer>
 <p>@copyright Aga&Gabi 2018</p>
 </footer>
+
 
 <script type="text/javascript">
 /* Toggle between adding and removing the "responsive" class to topnav when the user clicks on the icon */

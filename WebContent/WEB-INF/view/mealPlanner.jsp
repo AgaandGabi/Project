@@ -30,6 +30,8 @@
 <h2>Recipes + search</h2>
 
 <form action="ProductServlet?action=searchForProducts" method="post">
+
+
 	<p>Enter Search Text</p>
 	<input type="text" name="searchText" placeholder="Type here" >
 	
@@ -76,6 +78,7 @@
 <a href="ProductServlet?action=showSearchForm">Search</a>
 </p>
 </div>
+
 </main><!-- end of main -->
 
 <footer>
