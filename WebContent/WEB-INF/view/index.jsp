@@ -12,6 +12,25 @@
 
 </head>
 <body >
+<div id="home">
+<nav>
+<div class="topnav" id="myTopnav">
+  <a href="ProductServlet?action=viewAll" class="active">C S</a>
+  <a href="ProductServlet?action=displayProduct">Ingredients</a>
+  <a href="ProductServlet?action=showSearchForm">Recipes</a>
+  <a href="ProductServlet?action=viewCart">Shopping list</a>
+  <a href="ProductServlet?action=mealPlanner">Meal plans</a>
+  <a href="ProductServlet?action=eatingHealthy">Eating healthy</a>
+  <a href="#contact">Contact</a>
+  <a href="#about">About</a>
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
+</div>
+</nav>
+ <h1 id= "heading1">Something about the app</h1>
+ </div> <!-- end of home -->
+<main>
+<c:if test="${cart != null && !cart.isEmpty()}">
+
 
 </body>
 </html>
