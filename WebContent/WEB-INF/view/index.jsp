@@ -11,26 +11,24 @@
 <style><%@include file="/WEB-INF/css/style.css"%></style> 
 
 </head>
-<body background="images/1.jpg">
+<body >
+<div id="home">
 <nav>
 <div class="topnav" id="myTopnav">
-  <a href="index.jsp" class="active">Soap</a>
+  <a href="" class="active">S C</a>
   <a href="displayProduct.jsp">Ingredients</a>
   <a href="searchRecipes.jsp">Recipes</a>
   <a href="viewShoppingList.jsp">Shopping list</a>
   <a href="mealPlanner.jsp">Meal plans</a>
   <a href="eatingHealthy.jsp">Eating healthy</a>
-  <a href="contact.jsp">Contact</a>
-  <a href="about.jsp">About</a>
+  <a href="#contact">Contact</a>
+  <a href="#about">About</a>
   <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
 </div>
 </nav>
+ <h1 id= "heading1">Something about the app</h1>
+ </div> <!-- end of home -->
 <main>
-
-
- 
- 
-
 <c:if test="${cart != null && !cart.isEmpty()}">
 
 	<c:forEach var="item" items="${cart}">
@@ -53,6 +51,7 @@
 	</c:otherwise>
 </c:choose>
 </div>
+
 
 <div class ="mainpage one">
 <a href = "">Ingredients</a>
@@ -81,12 +80,27 @@
 <form action="BookServlet?action=searchForProduct" method="post">
 	<input type="text" name="searchText" placeholder="Search"  class = "search">	
 </form>
-
+</div>
+</main>
+<div id="aboutcontact" class = "clearfix">
+<div id = "about">
 
 </div>
 
+<div id = "contact" class = "clearfix">
+<h2>Help us improve our services</h2>
+<form action="ProductServlet?action=contactForm" method="post">
+	
+	<input type="text" name="name"  class="input" placeholder="name" required >
 
-</main>
+	<input type="email" name="email"  class="input" placeholder="e-mail address" required>
+	
+	<textarea  name="comments" 
+	    placeholder="comments"></textarea>
+	<input type="submit" value="Submit" class="submit">
+</form>
+</div> <!-- end contact -->
+</div> <!-- end aboutcontact -->
 <footer>
 <p>@copyright Aga&Gabi 2018</p>
 </footer>
@@ -100,6 +114,16 @@ function myFunction() {
         x.className = "topnav";
     }
 }
+</script>
+<script type="text/javascript">
+
+    var divHeight = document.getElementById('home').offsetHeight;
+    var w = window.innerWidth;
+    var h = window.innerHeight;
+
+      
+document.getElementById('home').style.height = h+"px";
+document.getElementById('heading1').style.paddingTop = h/3 + "px";
 </script>
 </body>
 </html>
