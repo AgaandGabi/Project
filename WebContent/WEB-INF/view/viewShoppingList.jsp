@@ -14,14 +14,14 @@
 
 <nav>
 <div class="topnav" id="myTopnav">
-  <a href="index.jsp">Soap</a>
-  <a href="displayProduct.jsp">Ingredients</a>
-  <a href="searchRecipes.jsp">Recipes</a>
-  <a href="viewShoppingList.jsp" class="active">Shopping list</a>
-  <a href="mealPlanner.jsp">Meal plans</a>
-  <a href="eatingHealthy.jsp">Eating healthy</a>
-  <a href="contact.jsp">Contact</a>
-  <a href="about.jsp">About</a>
+  <a href="ProductServlet?action=viewAll">OurApp</a>
+  <a href="ProductServlet?action=displayProduct">Ingredients</a>
+  <a href="ProductServlet?action=showSearchForm">Recipes</a>
+  <a href="ProductServlet?action=viewCart" class="active">Shopping list</a>
+  <a href="ProductServlet?action=mealPlanner">Meal plans</a>
+  <a href="ProductServlet?action=eatingHealthy">Eating healthy</a>
+  <a href="ProductServlet?action=contact">Contact</a>
+  <a href="ProductServlet?action=about">About</a>
   <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
 </div>
 </nav>
@@ -56,8 +56,8 @@
 			 maxFractionDigits="2" value="${item.key.price}" /></td>
 			<td>${item.value}</td>
 			<td>
-			<a href="BookServlet?action=addQuantityToCart&bookId=${item.key.id}">Add</a> 
-			<a href="BookServlet?action=removeQuantityFromCart&bookId=${item.key.id}">Remove</a></td>
+			<a href="ProductServlet?action=addQuantityToCart&productId=${item.key.id}">Add</a> 
+			<a href="ProductServlet?action=removeQuantityFromCart&productId=${item.key.id}">Remove</a></td>
 			<td>${item.key.price * item.value}</td>
 			<!-- Sets up a total variable and each time through the loop
 			the price multiplied by the quantity is added to the total. -->
@@ -69,8 +69,8 @@
 <!-- Display the total from the variable declared in the for loop -->
 Total cost : &euro;${total}
 </p>
-<p><a href="BookServlet?action=viewAll">View Books</a></p>
-<p><a href="BookServlet?action=clearCart">Clear Shopping Cart</a></p>
+<p><a href="ProductServlet?action=viewAll">View Products</a></p>
+<p><a href="ProductServlet?action=clearCart">Clear Shopping Cart</a></p>
 
 
 
