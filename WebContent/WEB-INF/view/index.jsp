@@ -6,7 +6,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+
 <title>View All Links</title>
 <style><%@include file="/WEB-INF/css/style.css"%></style> 
 
@@ -26,7 +26,12 @@
   <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
 </div>
 </nav>
- <h1 id= "heading1">Something about the app</h1>
+<div id= "heading1">,
+ <h1><span>C</span>ook <span>S</span>mart</h1> 
+ <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp;  &nbsp;   &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; is a web app and meal planning tool that excels at organizing your recipe collection, planning your meals based on those recipes, building out shopping lists, and helping you cook the recipes you want to try.</p>
+ </div>
+ 
+ 
  </div> <!-- end of home -->
 <main>
 <c:if test="${cart != null && !cart.isEmpty()}">
@@ -84,7 +89,7 @@
 </main>
 <div id="aboutcontact" class = "clearfix">
 <div id = "about">
-
+<p>There is a lot to be gained by planning your meals: you <strong>eat better</strong>, healthier food, <strong>do more cooking</strong> and put more thought into what you eat, try new recipes, and save at the grocery store at the same time. </p>
 </div>
 
 <div id = "contact" class = "clearfix">
@@ -102,7 +107,7 @@
 </div> <!-- end contact -->
 
 <footer>
-<p>@copyright Aga&Gabi 2018</p>
+<p>@copyright Aga&#38;Gabi 2018</p>
 </footer>
 </div> <!-- end aboutcontact -->
 <script type="text/javascript">
@@ -121,7 +126,7 @@ function myFunction() {
     var w = window.innerWidth;
     var h = window.innerHeight;      
 document.getElementById('home').style.height = h+"px";
-document.getElementById('heading1').style.paddingTop = h/3 + "px";
+document.getElementById('heading1').style.paddingTop = h/1.7 + "px";
 </script>
 </body>
 </html>

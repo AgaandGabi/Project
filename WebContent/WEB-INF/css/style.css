@@ -24,6 +24,7 @@ body {
 	margin: 0;
 	font-family: Berlin Sans, sans-serif;
 	font-weight: 100;
+	color:white;
 	
 }
 #home{
@@ -55,14 +56,21 @@ footer p{
 	padding-bottom: 20px;
 	background-color: rgba(255,255,255,.4);}
 
-h1 {
-	color: black;
-	font-family: sans-serif;
-	color:white;
+#home p {
+	color: white;
 	margin-left: 10%;
-	font-weight: 300;
-	font-size: 30px;
+	font-weight: 100;
+	font-size: 25px;
+	width:25%;
+	line-height:1.5;
+	margin-top:-44px;
+	
 }
+h1{ margin-left: 10%;
+	font-family: Mistral, script;
+	font-size:3.1em;
+}
+
 
 h2 {
 	color: white;
@@ -260,13 +268,23 @@ p {
 	}
 	
 #about{
-	width: 50%;
-	height: 200px;
+	width: 45%;
+	height: auto;
     margin-bottom: 50px;
     float:left; 
    
+   
     
 }
+#about p{ 
+	margin: 50px 0px 50px 0px;
+	margin-left:20%;
+    color: white;
+    width: 45%;
+    line-height: 1.5;
+    
+    }
+    
 /*start contact section*/
 #contact{
 	width: 50%;
@@ -296,9 +314,7 @@ p {
     margin:15px 0;
     text-align: left;
     padding-left:10px;
-    color: rgba(255,255,255, 1);
-    
-	
+    color: rgba(255,255,255, 1);	
 }
 
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
