@@ -60,13 +60,15 @@ h1 {
 	font-family: sans-serif;
 	color:white;
 	margin-left: 10%;
+	font-weight: 300;
+	font-size: 30px;
 }
 
 h2 {
 	color: white;
 	margin-left: 50px;
 	margin-top:50px;
-	
+	font-weight: 300;
 }
 
 p {
@@ -261,7 +263,8 @@ p {
 	width: 50%;
 	height: 200px;
     margin-bottom: 50px;
-    float:left;
+    float:left; 
+   
     
 }
 /*start contact section*/
@@ -269,14 +272,16 @@ p {
 	width: 50%;
     float:right;
 	background-color:transparent;
+
 }
 
 #contact form{
 	margin: 20px 50px 50px 50px;
 	width: 90%;
-	color: white;
+	color: rgba(255,255,255, .1);
 	text-align: left;
     font-size: 1em;	
+  
 	
 }
 
@@ -291,8 +296,22 @@ p {
     margin:15px 0;
     text-align: left;
     padding-left:10px;
-    color: rgba(255,255,255, .2);
+    color: rgba(255,255,255, 1);
+    
 	
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: rgba(255,255,255, .8);
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: rgba(255,255,255, .8);
+}
+::-ms-input-placeholder { /* IE 10+ */
+  color: rgba(255,255,255, .8);
+}
+::-moz-placeholder { /* Firefox 18- */
+  color: rgba(255,255,255, .8);
 }
 #contact textarea{
 	font-size: 1em;
@@ -300,14 +319,20 @@ p {
 	background-color: transparent;
 	width: 50%;
 	height: 100px;
-	color: rgba(255,255,255, .2);
+	color: rgba(255,255,255, 1);
 	padding-left:10px;
 	font-family: Berlin Sans, sans-serif;
 	padding-top:10px;	
+	
 }
 input:-webkit-autofill {
     -webkit-box-shadow: 0 0 0px 1000px white inset;
+    
 }
+input:focus, textarea:focus {
+    outline: none;
+}
+
  .submit{ 
     background-color: transparent;
     display:block;
