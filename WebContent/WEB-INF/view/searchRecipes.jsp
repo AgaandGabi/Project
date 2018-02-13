@@ -13,14 +13,14 @@
 
 <nav>
 <div class="topnav" id="myTopnav">
-    <a href="index.jsp">Soap</a>
-  <a href="displayProduct.jsp">Ingredients</a>
-  <a href="searchRecipes.jsp" class="active">Recipes</a>
-  <a href="viewShoppingList.jsp">Shopping list</a>
-  <a href="mealPlanner.jsp">Meal plans</a>
-  <a href="eatingHealthy.jsp">Eating healthy</a>
-  <a href="contact.jsp">Contact</a>
-  <a href="about.jsp">About</a>
+  <a href="ProductServlet?action=viewAll">OurApp</a>
+  <a href="ProductServlet?action=displayProduct">Ingredients</a>
+  <a href="ProductServlet?action=showSearchForm" class="active">Recipes</a>
+  <a href="ProductServlet?action=viewCart">Shopping list</a>
+  <a href="ProductServlet?action=mealPlanner">Meal plans</a>
+  <a href="ProductServlet?action=eatingHealthy">Eating healthy</a>
+  <a href="ProductServlet?action=contact">Contact</a>
+  <a href="ProductServlet?action=about">About</a>
   <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
 </div>
 </nav>
@@ -29,7 +29,7 @@
 <h1>searchRecipes.jsp</h1>
 <h2>Recipes + search</h2>
 
-<form action="ProductServlet?action=searchForProducts" method="post">
+<form action="ProductServlet?action=searchRecipes" method="post">
 	<p>Enter Search Text</p>
 	<input type="text" name="searchText" placeholder="Type here" >
 	
