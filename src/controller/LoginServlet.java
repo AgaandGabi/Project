@@ -77,7 +77,7 @@ public class LoginServlet extends HttpServlet {
 		if (loginDAO.validateUser(username, password)) {
 			request.getSession().setAttribute("username", username);
 			request.changeSessionId();
-			response.sendRedirect("BookServlet?action=viewAll");
+			response.sendRedirect("ProductServlet?action=viewAll");
 		} else { // incorrect login credentials
 			// A HttpServletRequest request's attribute only lives onto the next page. 
 			request.setAttribute("message", "Incorrect username and password combination, please try again.");
@@ -103,7 +103,7 @@ public class LoginServlet extends HttpServlet {
 	 */
 	private void logout(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.getSession().invalidate();
-		response.sendRedirect("BookServlet?action=viewAll");
+		response.sendRedirect("ProductServlet?action=viewAll");
 	}
 	
 	
@@ -128,7 +128,7 @@ public class LoginServlet extends HttpServlet {
 		request.getSession().setAttribute("username", username);
 		request.changeSessionId();
 		
-		response.sendRedirect("BookServlet?action=viewAll");
+		response.sendRedirect("ProductServlet?action=viewAll");
 	}
 	
 	/*

@@ -58,17 +58,34 @@ public class ProductServlet extends HttpServlet {
 		case "delete":
 			deleteProduct(request, response);
 			break;
-		case "showUpdateForm":
-			showUpdateForm(request, response);
+		case "showUpdateProduct":
+			showUpdateProduct(request, response);
+			break;
+		case "displayProduct":
+			System.out.println("In displayProduct");
+			displayProduct(request, response);
 			break;
 		case "updateProduct":
 			updateProduct(request, response);
 			break;
 		case "showSearchForm":
+			System.out.println("In showSearchForm");
 			showSearchForm(request, response);
 			break;
 		case "searchForRecipe":
 			searchForRecipe(request, response);
+			break;
+		case "mealPlanner":
+			mealPlanner(request, response);
+			break;
+		case "eatingHealthy":
+			eatingHealthy(request, response);
+			break;
+		case "contact":
+			contact(request, response);
+			break;
+		case "about":
+			about(request, response);
 			break;
 		case "addToCart":
 			addToCart(request, response);
@@ -94,13 +111,7 @@ public class ProductServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
 	}
-	
-	private void clearCart(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getSession().removeAttribute("cart");
-		response.sendRedirect("ProductServlet?action=viewAll");
-	}
-	
-	
+
 	private void changeQuantityInCart(int newQuantity, 
 			HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
@@ -122,14 +133,9 @@ public class ProductServlet extends HttpServlet {
 			cart.remove(product);
 		}
 		System.out.println("Quantity changed in the cart for " + product );
-		response.sendRedirect("productServlet?action=viewCart");
+		response.sendRedirect("ProductServlet?action=viewCart");
 	}
-	
-	private void viewCart(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher dispatcher = request.getRequestDispatcher(
-				"\\WEB-INF\\view\\viewShoppingList.jsp");
-		dispatcher.forward(request, response);
-	}
+
 	
 	/**
 	 * A user must be logged in before you can add anything to the cart. 
@@ -196,6 +202,10 @@ public class ProductServlet extends HttpServlet {
 		else // otherwise the user is logged in, so view all the products
 			response.sendRedirect("ProductServlet?action=viewAll");
 	}
+	private void clearCart(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.getSession().removeAttribute("cart");
+		response.sendRedirect("ProductServlet?action=viewAll");
+	}
 	
 	private void searchForRecipe(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String searchText = request.getParameter("searchText"); // text field
@@ -204,14 +214,8 @@ public class ProductServlet extends HttpServlet {
 		List<Product> listOfProducts = productDao.searchRecipes(searchType, searchText);
 		request.setAttribute("listOfProducts", listOfProducts);
 		
-		request.getRequestDispatcher("\\WEB-INF\\view\\viewproducts.jsp")
+		request.getRequestDispatcher("\\WEB-INF\\view\\displayProduct.jsp")
 						.forward(request, response);
-	}
-	
-	private void showSearchForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher dispatcher = request.getRequestDispatcher(
-				"\\WEB-INF\\view\\search.jsp");
-		dispatcher.forward(request, response);
 	}
 	
 	private void updateProduct(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -233,7 +237,7 @@ public class ProductServlet extends HttpServlet {
 		response.sendRedirect("ProductServlet?action=viewAll");
 	}
 	
-	private void showUpdateForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	private void showUpdateProduct(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		/* Get the productId, which was sent as a parameter from the 
 		 * update link in the viewproducts.jsp */
 		int productId = Integer.parseInt(request.getParameter("productId"));
@@ -283,14 +287,6 @@ public class ProductServlet extends HttpServlet {
 		response.sendRedirect("ProductServlet?action=viewAll");
 	}
 
-
-
-	private void showInsertForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher dispatcher = request.getRequestDispatcher(
-				"\\WEB-INF\\view\\insertProduct.jsp");
-		dispatcher.forward(request, response);
-	}
-	
 	private void getAllRecipes(HttpServletRequest request, 
 			HttpServletResponse response) 
 					throws ServletException, IOException {
@@ -303,4 +299,54 @@ public class ProductServlet extends HttpServlet {
 				"\\WEB-INF\\view\\index.jsp");
 		dispatcher.forward(request, response);
 	}
+/**
+ * action --> for displaying pages
+ * */
+	
+	
+	private void viewCart(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		RequestDispatcher dispatcher = request.getRequestDispatcher(
+				"\\WEB-INF\\view\\viewShoppingList.jsp");
+		dispatcher.forward(request, response);
+	}
+	private void showSearchForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		RequestDispatcher dispatcher = request.getRequestDispatcher(
+				"\\WEB-INF\\view\\searchRecipes.jsp");
+		System.out.println("In showSearchForm method");
+		dispatcher.forward(request, response);
+	}
+	private void mealPlanner(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		RequestDispatcher dispatcher = request.getRequestDispatcher(
+				"\\WEB-INF\\view\\mealPlanner.jsp");
+		dispatcher.forward(request, response);
+	}
+	private void eatingHealthy(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		RequestDispatcher dispatcher = request.getRequestDispatcher(
+				"\\WEB-INF\\view\\eatingHealthy.jsp");
+		dispatcher.forward(request, response);
+	}
+	private void contact(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		RequestDispatcher dispatcher = request.getRequestDispatcher(
+				"\\WEB-INF\\view\\contact.jsp");
+		dispatcher.forward(request, response);
+	}
+	private void about(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		RequestDispatcher dispatcher = request.getRequestDispatcher(
+				"\\WEB-INF\\view\\about.jsp");
+		dispatcher.forward(request, response);
+	}
+	private void displayProduct(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		RequestDispatcher dispatcher = request.getRequestDispatcher(
+				"\\WEB-INF\\view\\displayProduct.jsp");
+		
+		System.out.println("In displayProduct method");
+		
+		dispatcher.forward(request, response);
+	}
+	private void showInsertForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		RequestDispatcher dispatcher = request.getRequestDispatcher(
+				"\\WEB-INF\\view\\insertProduct.jsp");
+		dispatcher.forward(request, response);
+	}
+	
 }

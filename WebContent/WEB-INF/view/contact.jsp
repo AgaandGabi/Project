@@ -12,14 +12,14 @@
 <body>
 <nav>
 <div class="topnav" id="myTopnav">
-  <a href="index.jsp">Soap</a>
-  <a href="displayProduct.jsp">Ingredients</a>
-  <a href="searchRecipes.jsp">Recipes</a>
-  <a href="viewShoppingList.jsp">Shopping list</a>
-  <a href="mealPlanner.jsp">Meal plans</a>
-  <a href="eatingHealthy.jsp">Eating healthy</a>
-  <a href="contact.jsp" class="active">Contact</a>
-  <a href="about.jsp">About</a>
+  <a href="ProductServlet?action=viewAll">OurApp</a>
+  <a href="ProductServlet?action=displayProduct">Ingredients</a>
+  <a href="ProductServlet?action=showSearchForm">Recipes</a>
+  <a href="ProductServlet?action=viewCart">Shopping list</a>
+  <a href="ProductServlet?action=mealPlanner">Meal plans</a>
+  <a href="ProductServlet?action=eatingHealthy">Eating healthy</a>
+  <a href="ProductServlet?action=contact" class="active">Contact</a>
+  <a href="ProductServlet?action=about">About</a>
   <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
 </div>
 </nav>
