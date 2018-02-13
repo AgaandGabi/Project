@@ -100,10 +100,11 @@
 	<input type="submit" value="Submit" class="submit">
 </form>
 </div> <!-- end contact -->
-</div> <!-- end aboutcontact -->
+
 <footer>
 <p>@copyright Aga&Gabi 2018</p>
 </footer>
+</div> <!-- end aboutcontact -->
 <script type="text/javascript">
 /* Toggle between adding and removing the "responsive" class to topnav when the user clicks on the icon */
 function myFunction() {
@@ -116,12 +117,9 @@ function myFunction() {
 }
 </script>
 <script type="text/javascript">
-
     var divHeight = document.getElementById('home').offsetHeight;
     var w = window.innerWidth;
-    var h = window.innerHeight;
-
-      
+    var h = window.innerHeight;      
 document.getElementById('home').style.height = h+"px";
 document.getElementById('heading1').style.paddingTop = h/3 + "px";
 </script>

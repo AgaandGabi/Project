@@ -46,7 +46,7 @@ public class ProductServlet extends HttpServlet {
 		if (action == null) 
 			action = "viewAll";
 		
-		System.out.println("action is " + action);
+		System.out.println("The action is " + action);
 		
 		switch (action) {
 		case "showInsertForm":
