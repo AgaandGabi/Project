@@ -15,7 +15,7 @@
 <div id="home">
 <nav>
 <div class="topnav" id="myTopnav">
-  <a href="ProductServlet?action=viewAll" class="active">OurApp</a>
+  <a href="ProductServlet?action=viewAll" class="active">C S</a>
   <a href="ProductServlet?action=displayProduct">Ingredients</a>
   <a href="ProductServlet?action=showSearchForm">Recipes</a>
   <a href="ProductServlet?action=viewCart">Shopping list</a>
