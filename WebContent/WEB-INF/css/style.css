@@ -24,6 +24,8 @@ body {
 	margin: 0;
 	font-family: Berlin Sans, sans-serif;
 	font-weight: 100;
+	color:white;
+	background-color:gray;
 	
 }
 #home{
@@ -53,16 +55,23 @@ footer p{
 	color: white;
 	padding-top:20px;
 	padding-bottom: 20px;
-	background-color: rgba(255,255,255,.4);}
+	background-color: rgba(255,255,255,.6);}
 
-h1 {
-	color: black;
-	font-family: sans-serif;
-	color:white;
+#home p {
+	color: white;
 	margin-left: 10%;
-	font-weight: 300;
-	font-size: 30px;
+	font-weight: 100;
+	font-size: 25px;
+	width:25%;
+	line-height:1.5;
+	margin-top:-44px;
+	
 }
+h1{ margin-left: 10%;
+	font-family: Mistral, script;
+	font-size:3.1em;
+}
+
 
 h2 {
 	color: white;
@@ -93,8 +102,7 @@ p {
 	height: 250px;	
 	margin-top: 50px;
 	text-align: centre;
-	font-size: 20px;
-	border: 1px solid white;
+	font-size: 1.5em;
 	text-transform: uppercase;
 	
 }
@@ -104,37 +112,36 @@ p {
 	color: white;
 	margin:0 auto;
 	margin-top:12px;
-	padding: 100px 0 100px 0;
+	padding: 98px 0 98px 0;
 	width: 95%;
 	display: block;
-	border: 1px solid white;
+	border: 1px solid rgba(255,255,255,.5);
 	}
 	
 .mainpage a:hover{
 	-webkit-transition: all .5s ease;
     -moz-transition: all .5s ease;
     transition: all .5s ease;
-	background-color: rgba(255,255,255,.4)
+	background-color: rgba(255,255,255,.6);
+	border: 1px solid rgba(255,255,255,.1);
+	color:black; 
 	}
+
 	
 .one{ 	
-	
 	float: left;
 	margin-left: 10%;
 	margin-right: 4%;
-
     background-image: url(images/3.jpg);
-    background-size: cover;
-    
+    background-size: cover;    
    }
+    
    
-.two{ 	
-	
+.two{ 		
 	float: right;
 	margin-left: 4%;
 	margin-right: 10%;
 	background-image: url(images/2.jpg);
-
     background-size: cover; 
    }
    
@@ -151,7 +158,6 @@ p {
 	float: right;
 	margin-left: 4%;
 	margin-right: 10%;
-
     margin-bottom:50px;
     background-image: url(images/7.jpg);
     background-size: cover;
@@ -175,17 +181,20 @@ p {
 	color: white;
 	margin:0 auto;
 	position:relative;
-	padding: 55px 0 55px 0;
+	padding: 51px 0 51px 0;
 	width: 98%;
+	font-size: 1.4em;
 	display: block;
-	border: 1px solid white;
+	border: 1px solid rgba(255,255,255,.5);
 	}
 	
  .five a:hover{
 	-webkit-transition: all .5s ease;
     -moz-transition: all .5s ease;
     transition: all .5s ease;
-	background-color: rgba(255,255,255,.4);	
+	background-color: rgba(255,255,255,.6);
+	border: 1px solid rgba(255,255,255,.1);
+	color:black;
 	}
 
 /* start - login and search styles*/
@@ -211,14 +220,14 @@ p {
 
 }
 .loginLinks a:hover{
-    background-color: rgba(255,255,255,0.2);  
+    background-color: rgba(255,255,255,0.6);  
     -webkit-transition: all .5s ease;
     -moz-transition: all .5s ease;
     transition: all .5s ease;
 }
 
 .search:hover{
-	background-color: rgba(255,255,255,0.2);
+	background-color: rgba(255,255,255,0.6);
     color: black; }      
 
 .search {
@@ -260,13 +269,21 @@ p {
 	}
 	
 #about{
-	width: 50%;
-	height: 200px;
+	width: 30%;
+	height: auto;
     margin-bottom: 50px;
-    float:left; 
-   
-    
+    float:left;     
+    margin: 50px 0px 50px 0px;
+	margin-left:20%;
 }
+
+#about p{ 
+	width:80%;
+	padding-top:20px;
+    color: white;
+    line-height: 1.5;
+    }
+    
 /*start contact section*/
 #contact{
 	width: 50%;
@@ -296,9 +313,7 @@ p {
     margin:15px 0;
     text-align: left;
     padding-left:10px;
-    color: rgba(255,255,255, 1);
-    
-	
+    color: rgba(255,255,255, 1);	
 }
 
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
@@ -433,7 +448,14 @@ Horizontal Nav bar
     -moz-transition: all .5s ease;
     transition: all .5s ease;
 }
-.topnav a:first-child:hover{border-bottom: 1px solid white;}
+.topnav a:first-child:hover{
+	border-bottom: 1px solid white; 
+	background-color: rgba(255,255,255, .6);
+	-webkit-transition: all .5s ease;
+   -moz-transition: all .5s ease;
+    transition: all .5s ease;
+    color:black;}
+    
 .topnav a:first-child{
  border-bottom:1px solid white;
  border-left:1px solid white;

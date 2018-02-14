@@ -59,19 +59,19 @@
 
 
 <div class ="mainpage one">
-<a href = "">Ingredients</a>
+<a href = "ProductServlet?action=displayProduct"><span>Ingredients</span></a>
 </div>
 <div class ="mainpage two">
-<a href = "">Recipes</a>
+<a href = "ProductServlet?action=showSearchForm">Recipes</a>
 </div>
 <div class ="mainpage three">
-<a href = "">Shopping List</a>
+<a href = "ProductServlet?action=viewCart">Shopping List</a>
 </div>
 <div class ="mainpage four">
-<a href = "">Meal Plans</a>
+<a href = "ProductServlet?action=mealPlanner">Meal Plans</a>
 </div>
 <div class ="five">
-<a href = "">Eating Healthy</a>
+<a href = "ProductServlet?action=eatingHealthy">Eating Healthy</a>
 </div>
 
 
@@ -89,7 +89,10 @@
 </main>
 <div id="aboutcontact" class = "clearfix">
 <div id = "about">
-<p>There is a lot to be gained by planning your meals: you <strong>eat better</strong>, healthier food, <strong>do more cooking</strong> and put more thought into what you eat, try new recipes, and save at the grocery store at the same time. </p>
+<p>There is a lot to be gained by planning your meals: you <strong>eat better</strong>, healthier food, <strong>do more cooking</strong> and put more thought into what you eat, try new recipes, and save at the grocery store at the same time.</p> 
+<p><strong>Smart Cook</strong> has a good collection of recipes that you can use to build menus for your regular meals, for special events, or any night of the week.</p> 
+<p><strong>Smart Cook</strong> can also generate a shopping list based on your meal plan that you can take with you and cross off at the grocery store. You can share your recipes, meal plans, or shopping lists with others if you need to. When you are ready to cook, <strong> Smart Cook</strong> will walk you through the recipes, complete with cooking timers to help you stay on top of simmering or baking food.</p>
+
 </div>
 
 <div id = "contact" class = "clearfix">
@@ -126,7 +129,7 @@ function myFunction() {
     var w = window.innerWidth;
     var h = window.innerHeight;      
 document.getElementById('home').style.height = h+"px";
-document.getElementById('heading1').style.paddingTop = h/1.7 + "px";
+document.getElementById('heading1').style.paddingTop = h/1.8 + "px";
 </script>
 </body>
 </html>
