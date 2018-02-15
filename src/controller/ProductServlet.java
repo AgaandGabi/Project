@@ -43,7 +43,7 @@ public class ProductServlet extends HttpServlet {
 		String action = request.getParameter("action");
 
 		if (action == null) 
-			action = "viewAll";
+			action = "indexpage";
 		
 		System.out.println("The action is " + action);
 		
@@ -97,9 +97,14 @@ public class ProductServlet extends HttpServlet {
 		case "removeQuantityFromCart":
 			changeQuantityInCart(-1, request, response);
 			break;
-		default: // viewAll:
+		case "viewall":
 			getAllProducts(request, response);
 			break;
+		default:
+			System.out.println("index");
+			index(request, response);
+			break;
+	
 		}
 	}
 	
@@ -212,9 +217,16 @@ public class ProductServlet extends HttpServlet {
 	
 	private void displayProduct(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		RequestDispatcher dispatcher = request.getRequestDispatcher(
-				"\\WEB-INF\\view\\index.jsp");	
+				"\\WEB-INF\\view\\displayProduct.jsp");	
 		System.out.println("In displayProduct method");
 		dispatcher.forward(request, response);
+	}
+		
+		private void index(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+			RequestDispatcher dispatcher = request.getRequestDispatcher(
+					"\\WEB-INF\\view\\index.jsp");	
+			System.out.println("show index");
+			dispatcher.forward(request, response);
 	}
 	
 	private void viewCart(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

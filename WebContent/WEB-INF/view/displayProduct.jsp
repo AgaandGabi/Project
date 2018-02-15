@@ -14,8 +14,8 @@
 <div id="home" class="clearfix">
 <nav class="clearfix">
 <div class="topnav" id="myTopnav">
-  <a href="ProductServlet?action=viewAll" >C S</a>
-  <a href="ProductServlet?action=displayProduct" class="active">Ingredients</a>
+ <a href="ProductServlet?action=indexpage" class="active">C S</a>
+  <a href="ProductServlet?action=viewall">Ingredients</a>
   <a href="ProductServlet?action=showSearchForm">Recipes</a>
   <a href="ProductServlet?action=viewCart">Shopping list</a>
   <a href="ProductServlet?action=mealPlanner">Meal plans</a>
@@ -127,8 +127,8 @@
 <div id="aboutcontact" class = "clearfix">
 <div id = "about">
 <p>There is a lot to be gained by planning your meals: you <strong>eat better</strong>, healthier food, <strong>do more cooking</strong> and put more thought into what you eat, try new recipes, and save at the grocery store at the same time.</p> 
-<p><strong>Smart Cook</strong> has a good collection of recipes that you can use to build menus for your regular meals, for special events, or any night of the week.</p> 
-<p><strong>Smart Cook</strong> can also generate a shopping list based on your meal plan that you can take with you and cross off at the grocery store. You can share your recipes, meal plans, or shopping lists with others if you need to. When you are ready to cook, <strong> Smart Cook</strong> will walk you through the recipes, complete with cooking timers to help you stay on top of simmering or baking food.</p>
+<p><strong>Cook Smart </strong> has a good collection of recipes that you can use to build menus for your regular meals, for special events, or any night of the week.</p> 
+<p><strong>Cook Smart</strong> can also generate a shopping list based on your meal plan that you can take with you and cross off at the grocery store. You can share your recipes, meal plans, or shopping lists with others if you need to. When you are ready to cook, <strong>Cook Smart</strong> will walk you through the recipes, complete with cooking timers to help you stay on top of simmering or baking food.</p>
 
 </div>
 
