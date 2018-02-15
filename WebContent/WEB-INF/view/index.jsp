@@ -7,7 +7,7 @@
 <html>
 <head>
 
-<title>View All Links</title>
+<title>index</title>
 <style><%@include file="/WEB-INF/css/style.css"%></style> 
 
 </head>
@@ -15,8 +15,8 @@
 <div id="home">
 <nav>
 <div class="topnav" id="myTopnav">
-  <a href="ProductServlet?action=viewAll" class="active">C S</a>
-  <a href="ProductServlet?action=displayProduct">Ingredients</a>
+  <a href="ProductServlet?action=indexpage" class="active">C S</a>
+  <a href="ProductServlet?action=viewall">Ingredients</a>
   <a href="ProductServlet?action=showSearchForm">Recipes</a>
   <a href="ProductServlet?action=viewCart">Shopping list</a>
   <a href="ProductServlet?action=mealPlanner">Meal plans</a>

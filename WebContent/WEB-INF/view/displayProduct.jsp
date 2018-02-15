@@ -14,8 +14,8 @@
 <div id="home" class="clearfix">
 <nav class="clearfix">
 <div class="topnav" id="myTopnav">
-  <a href="ProductServlet?action=viewAll" >C S</a>
-  <a href="ProductServlet?action=displayProduct" class="active">Ingredients</a>
+ <a href="ProductServlet?action=indexpage" class="active">C S</a>
+  <a href="ProductServlet?action=viewall">Ingredients</a>
   <a href="ProductServlet?action=showSearchForm">Recipes</a>
   <a href="ProductServlet?action=viewCart">Shopping list</a>
   <a href="ProductServlet?action=mealPlanner">Meal plans</a>
