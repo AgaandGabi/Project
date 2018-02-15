@@ -41,8 +41,7 @@ public class ProductServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String action = request.getParameter("action");
-		/* When the Servlet first loads, 'action' will be null and we
-		 * want to view all of the products */
+
 		if (action == null) 
 			action = "viewAll";
 		
@@ -61,8 +60,7 @@ public class ProductServlet extends HttpServlet {
 		case "showUpdateProduct":
 			showUpdateProduct(request, response);
 			break;
-		case "displayProduct":
-			System.out.println("In displayProduct");
+    	case "displayProduct":
 			displayProduct(request, response);
 			break;
 		case "updateProduct":
@@ -84,9 +82,6 @@ public class ProductServlet extends HttpServlet {
 		case "contact":
 			contact(request, response);
 			break;
-		case "about":
-			about(request, response);
-			break;
 		case "addToCart":
 			addToCart(request, response);
 			break;
@@ -103,7 +98,7 @@ public class ProductServlet extends HttpServlet {
 			changeQuantityInCart(-1, request, response);
 			break;
 		default: // viewAll:
-			getAllRecipes(request, response);
+			getAllProducts(request, response);
 			break;
 		}
 	}
@@ -119,16 +114,7 @@ public class ProductServlet extends HttpServlet {
 		Product product = productDao.getProductById(productId);
 		Map<Product, Integer> cart = (Map<Product, Integer>)
 						request.getSession().getAttribute("cart");
-		// When you add a product to the Map, if the product is there already
-		// it will not be added again but the quantity will change.
-		// newQuantity will be +1 for increasing the quantity and -1
-		// for decreasing the quantity
 		cart.put(product, cart.get(product) + newQuantity);
-		/*
-		 * If the new quantity becomes zero, remove that product from
-		 * the cart.
-		 * cart.get(product) will always get the quantity for that product.
-		 */
 		if (cart.get(product) == 0) {
 			cart.remove(product);
 		}
@@ -136,67 +122,24 @@ public class ProductServlet extends HttpServlet {
 		response.sendRedirect("ProductServlet?action=viewCart");
 	}
 
-	
-	/**
-	 * A user must be logged in before you can add anything to the cart. 
-	 * If the 'buy' link is clicked, then the user will be redirected to
-	 * the login in page, if they 
-	 */
 	private void addToCart(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		/* The productId parameter is sent across from the 'Buy' link
-		 * on the viewproducts.jsp */
 		int productId = Integer.parseInt(request.getParameter("productId"));
-		
-		/* The cart is going to be a Map object which holds key/value
-		 * pairs, i.e. product and quantity values. We need to create
-		 * the cart and add in the product and the quantity. We need to
-		 * get the product based on the id passed in. */
 		Product product = productDao.getProductById(productId);
 		System.out.printf("\nproduct for id %d is %s\n", productId, product);	
-		
-		/* The cart/ Map will be stored in a HttpSession object, which
-		 * is used to save info about a user across more than one page
-		 * request. Get the HttpSession object and then check if the 
-		 * cart exists already. This code will get the HttpSession 
-		 * object if it exists, if not, then a HttpSession will be
-		 * created. The cart will be added into the HttpSession. 
-		 */
 		HttpSession session = request.getSession(); 
-		
-		// If the cart doesn't exist already, then create it.
 		if (session.getAttribute("cart") == null) {
 			session.setAttribute("cart", new HashMap<Product, Integer>());
 		}
-		
-		/* Retrieve the cart from the HttpSession object to use it */ 
 		HashMap<Product, Integer> cart = 
 				(HashMap<Product, Integer>)session.getAttribute("cart");
-		
-		/* Before adding a product to the cart, check if the cart 
-		 * already contains that product, if it does, then add 1 to the
-		 * quantity already in the cart for that product. */
 		int quantity = 1;
 		
 		if (cart.containsKey(product)) {
-			/* cart.get(product) will return the quantity for that product,
-			 * i.e. how many times has 'buy' been clicked on for that
-			 * product.
-			 * cart.get(product) used the key to retrieve the value
-			 * from the Map. */
 			quantity = cart.get(product) + 1;
 		}
-
-		/* This line will add the product and quantity to the Map, if
-		 * the map contained the product already, the quantity will
-		 * increase by one (due to the code in the if statement), if
-		 * the Map doesn't contain that product, it will be added for the
-		 * first time with a quantity of 1. */
 		cart.put(product, quantity);
 		System.out.println("product added to cart ");
-		
-		/* If the user is not logged in, i.e. if "username" isn't in 
-		 * the session, redirect the user to the login page */
 		if (session.getAttribute("username") == null)
 			response.sendRedirect("LoginServlet?action=showLoginForm");
 		else // otherwise the user is logged in, so view all the products
@@ -208,46 +151,31 @@ public class ProductServlet extends HttpServlet {
 	}
 	
 	private void searchForRecipe(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String searchText = request.getParameter("searchText"); // text field
-		String searchType = request.getParameter("searchType"); // title/author
-		
+		String searchText = request.getParameter("searchText"); 
+		String searchType = request.getParameter("searchType"); 
 		List<Product> listOfProducts = productDao.searchRecipes(searchType, searchText);
 		request.setAttribute("listOfProducts", listOfProducts);
-		
 		request.getRequestDispatcher("\\WEB-INF\\view\\displayProduct.jsp")
 						.forward(request, response);
 	}
 	
 	private void updateProduct(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// Get all the parameters from the update JSP
 		int productId = Integer.parseInt(request.getParameter("productId"));
 		String name = request.getParameter("name");
-		BigDecimal weight = new BigDecimal(request.getParameter("weight"));
-		String description = request.getParameter("description");
 		BigDecimal price = new BigDecimal(request.getParameter("price"));
 		int quantity = Integer.parseInt(request.getParameter("quantity"));
-		
-		// create an updated product out of them
-		Product productToUpdate = new Product(name, description, price, weight, quantity);
-		// Pass that product to the DAO so that the product with the same
-		// id can be updated in the list.
+		int weight = Integer.parseInt(request.getParameter("weight"));
+		Product productToUpdate = new Product(name,  price,  quantity, weight);
 		productDao.updateProduct(productToUpdate);
-		
-		// request is complete, redirect the response to a 'viewAll'
-		response.sendRedirect("ProductServlet?action=viewAll");
+		response.sendRedirect("ProductServlet?action=getAllProducts");
 	}
 	
 	private void showUpdateProduct(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		/* Get the productId, which was sent as a parameter from the 
-		 * update link in the viewproducts.jsp */
 		int productId = Integer.parseInt(request.getParameter("productId"));
-		/* the update form needs a product object, so that it can display
-		 * all that products details. */
-		Product product = productDao.getProductById(productId);
-		/* Pass that product onto the JSP using request.setAttribute() */
-		request.setAttribute("product", product);
+				Product product = productDao.getProductById(productId);
+				request.setAttribute("product", product);
 		RequestDispatcher dispatcher = request.getRequestDispatcher(
-				"\\WEB-INF\\view\\updateProduct.jsp");
+				"\\WEB-INF\\view\\displayProduct.jsp");
 		dispatcher.forward(request, response);
 	}
 	
@@ -257,69 +185,57 @@ public class ProductServlet extends HttpServlet {
 		// Send that productId to the DAO to delete the product
 		productDao.deleteProduct(productId);
 		// request done! product deleted, now show all products
-		response.sendRedirect("ProductServlet?action=viewAll");
+		response.sendRedirect("ProductServlet?action=getAllProducts");
 	}
 	
 	private void insertProduct(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// Get all the parameters passed in from the Insert form, i.e.
-		// title, author, description and price.
-		int productId = Integer.parseInt(request.getParameter("productId"));
 		String name = request.getParameter("name");
-		BigDecimal weight = new BigDecimal(request.getParameter("weight"));
-		String description = request.getParameter("description");
 		BigDecimal price = new BigDecimal(request.getParameter("price"));
 		int quantity = Integer.parseInt(request.getParameter("quantity"));
-		
-		// Create a product object from those parameters
-		Product product = new Product(name, description, price, weight, quantity);
+		int weight = Integer.parseInt(request.getParameter("weight"));
+		Product product = new Product(name, price, quantity, weight);
 		System.out.println("New product : " + product);
-		
-		// Pass that product object into the DAO to get it added to
-		// the underlying storage (today it's a list tomorrow it
-		// will be a database).
 		productDao.insertProduct(product);
-		
-		/* When the product has been added into the list, this request
-		 * 'to insert a new product' is complete, we want a new request
-		 * now, which is to view all of the products. To start a new 
-		 * request from this method and go back into this Servlet
-		 * and into the doGet() method, you use response.sendRedirect() */
-		response.sendRedirect("ProductServlet?action=viewAll");
+		response.sendRedirect("ProductServlet?action=getAllProducts");
 	}
 
-	private void getAllRecipes(HttpServletRequest request, 
+	private void getAllProducts(HttpServletRequest request, 
 			HttpServletResponse response) 
 					throws ServletException, IOException {
-		
-		List<Product> listOfproducts = productDao.getAllProducts();
-		/* Pass the listOfproducts to the JSP as an attribute */
-		request.setAttribute("listOfproducts", listOfproducts);
-		/* Open the JSP page */
+		List<Product> listOfProducts = productDao.getAllProducts();
+		request.setAttribute("listOfProducts", listOfProducts);
 		RequestDispatcher dispatcher = request.getRequestDispatcher(
-				"\\WEB-INF\\view\\index.jsp");
+				"\\WEB-INF\\view\\displayProduct.jsp");
+		System.out.println("In getAllProducts method" + listOfProducts);
 		dispatcher.forward(request, response);
 	}
-/**
- * action --> for displaying pages
- * */
 	
+	private void displayProduct(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		RequestDispatcher dispatcher = request.getRequestDispatcher(
+				"\\WEB-INF\\view\\index.jsp");	
+		System.out.println("In displayProduct method");
+		dispatcher.forward(request, response);
+	}
 	
 	private void viewCart(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		RequestDispatcher dispatcher = request.getRequestDispatcher(
 				"\\WEB-INF\\view\\viewShoppingList.jsp");
 		dispatcher.forward(request, response);
 	}
+	
 	private void showSearchForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		RequestDispatcher dispatcher = request.getRequestDispatcher(
 				"\\WEB-INF\\view\\searchRecipes.jsp");
 		System.out.println("In showSearchForm method");
 		dispatcher.forward(request, response);
 	}
+	
 	private void mealPlanner(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		RequestDispatcher dispatcher = request.getRequestDispatcher(
 				"\\WEB-INF\\view\\mealPlanner.jsp");
 		dispatcher.forward(request, response);
 	}
+	
 	private void eatingHealthy(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		RequestDispatcher dispatcher = request.getRequestDispatcher(
 				"\\WEB-INF\\view\\eatingHealthy.jsp");
@@ -330,19 +246,7 @@ public class ProductServlet extends HttpServlet {
 				"\\WEB-INF\\view\\contact.jsp");
 		dispatcher.forward(request, response);
 	}
-	private void about(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher dispatcher = request.getRequestDispatcher(
-				"\\WEB-INF\\view\\about.jsp");
-		dispatcher.forward(request, response);
-	}
-	private void displayProduct(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher dispatcher = request.getRequestDispatcher(
-				"\\WEB-INF\\view\\displayProduct.jsp");
-		
-		System.out.println("In displayProduct method");
-		
-		dispatcher.forward(request, response);
-	}
+	
 	private void showInsertForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		RequestDispatcher dispatcher = request.getRequestDispatcher(
 				"\\WEB-INF\\view\\insertProduct.jsp");
