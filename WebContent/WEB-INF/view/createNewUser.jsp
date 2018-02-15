@@ -46,6 +46,7 @@ ${message}
 
 </form>
 
+
 <c:if test="${cart != null && !cart.isEmpty()}">
 
 	<c:forEach var="item" items="${cart}">
@@ -54,6 +55,7 @@ ${message}
 
 	<a href="ProductServlet?action=viewCart">View shopping list: ${count} item(s)</a>
 </c:if>
+
 
 <div class="loginLinks">
 <!-- When the 'username' attribute is not null, somebody is logged
