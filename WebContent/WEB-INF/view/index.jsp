@@ -82,7 +82,7 @@
 	</c:when>
 </c:choose>
 
-<form action="BookServlet?action=searchForProduct" method="post">
+<form action="ProductServlet?action=searchForProduct" method="post">
 	<input type="text" name="searchText" placeholder="Search"  class = "search">	
 </form>
 </div>

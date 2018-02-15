@@ -39,7 +39,8 @@ public class ProductServlet extends HttpServlet {
     	productDao = new ProductDAO();
     }
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+/*	protected void doGet(HttpServletRequest request, HttpServletResponse response, String name, BigDecimal price, int quantity, int weight) throws ServletException, IOException {
+*/	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String action = request.getParameter("action");
 
 		if (action == null) 
@@ -64,8 +65,10 @@ public class ProductServlet extends HttpServlet {
 			displayProduct(request, response);
 			break;
 		case "updateProduct":
+			System.out.println("In updateProduct switch");
 			updateProduct(request, response);
-			break;
+/*			updateProduct(request, response, name, price, quantity, weight);
+*/			break;
 		case "showSearchForm":
 			System.out.println("In showSearchForm");
 			showSearchForm(request, response);
@@ -165,14 +168,30 @@ public class ProductServlet extends HttpServlet {
 	}
 	
 	private void updateProduct(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int productId = Integer.parseInt(request.getParameter("productId"));
+		
+		// Currently the update is returning the original data and saving it back to the DB, no changes are committed.
+		// The data that is changed in the form field for the record needs to be passed back to the update method.
+		
+		
+		System.out.println("in updateProduct method");
+        int productId = Integer.parseInt(request.getParameter("productId"));
+		System.out.println("productId: " + productId);
+		Product product = productDao.getProductById(productId);
+		request.setAttribute("product", product);
+
+		
+		
 		String name = request.getParameter("name");
+		System.out.println("name: " + name);
+
 		BigDecimal price = new BigDecimal(request.getParameter("price"));
 		int quantity = Integer.parseInt(request.getParameter("quantity"));
 		int weight = Integer.parseInt(request.getParameter("weight"));
-		Product productToUpdate = new Product(name,  price,  quantity, weight);
+
+		
+	    Product productToUpdate = new Product(name,  price,  quantity, weight);
 		productDao.updateProduct(productToUpdate);
-		response.sendRedirect("ProductServlet?action=getAllProducts");
+        response.sendRedirect("ProductServlet?action=viewall");
 	}
 	
 	private void showUpdateProduct(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -190,18 +209,18 @@ public class ProductServlet extends HttpServlet {
 		// Send that productId to the DAO to delete the product
 		productDao.deleteProduct(productId);
 		// request done! product deleted, now show all products
-		response.sendRedirect("ProductServlet?action=getAllProducts");
+		response.sendRedirect("ProductServlet?action=viewall");
 	}
 	
 	private void insertProduct(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String name = request.getParameter("name");
 		BigDecimal price = new BigDecimal(request.getParameter("price"));
 		int quantity = Integer.parseInt(request.getParameter("quantity"));
-		int weight = Integer.parseInt(request.getParameter("weight"));
+		int weight = Integer.parseInt((request.getParameter("weight").substring(0,3)));
 		Product product = new Product(name, price, quantity, weight);
 		System.out.println("New product : " + product);
 		productDao.insertProduct(product);
-		response.sendRedirect("ProductServlet?action=getAllProducts");
+		response.sendRedirect("ProductServlet?action=viewall");
 	}
 
 	private void getAllProducts(HttpServletRequest request, 

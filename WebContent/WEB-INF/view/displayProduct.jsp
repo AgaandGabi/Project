@@ -70,43 +70,50 @@
 	</c:when>
 	
 	<c:otherwise>
+	<form action="ProductServlet?action=updateProduct" method="post">
 		<table >
-			<tr><th>Id</th>
-				<th>Name</th>
+			<tr>
+				<th>Product</th>
 				<th>Weight</th>
 				<th>Quantity</th>
 				<th>Price</th>
-				<th>Update fields</th>
+				<th>Update</th>
 				<th>Delete</th>
 				
-				<th>Add to Shopping list</th>
+				<th>Shop</th>
 			</tr>
 			<c:forEach var="product" items="${listOfProducts}" varStatus="status" >
 				<tr>
-					<td>${product.id}</td>
-					<td>${product.name}</td>
-					 <td>${product.weight}</td>
-					 <td>${product.quantity}</td>
-					 <td>&euro;<fmt:formatNumber type="number"
-					 maxFractionDigits="2" value="${product.price}" /></td>
-					<td><a href="ProductServlet?action=showUpdateForm&productId=${product.id}">Update</a></td>
-					<td><a href="ProductServlet?action=delete&productId=${product.id}">Delete</a></td>
-					<td><a href="ProductServlet?action=addToCart&productId=${product.id}">Add</a></td>
+					<td><input type="text" name="name" value="${product.name}" class="name"></td>
+					 <td><input type="text" name="weight" value="${product.weight}" class="small" ></td>
+					 <td><input type="text" name="quantity" value="${product.quantity}" class="small"></td>
+					 <td><input type="text" name="price" 
+			             value="<fmt:formatNumber type='number'
+		              	 maxFractionDigits='2' value='${product.price}'>
+			             </fmt:formatNumber>" class="small"></td>
+					<td><a href="ProductServlet?action=updateProduct&productId=${product.id}&name=${name}"><img src ="images/update.png" alt ="update item"></a></td>
+					<td><a href="ProductServlet?action=delete&productId=${product.id}"><img src ="images/delete.png" alt ="delete item"></a></td>
+					<td><a href="ProductServlet?action=addToCart&productId=${product.id}"><img src ="images/addtocart.png" alt ="add to cart"></a></td>
 				</tr>
 			</c:forEach>
+			<p><input type="submit" value="Submit"/></p> 
 		</table>
+			
+		</form>
 	</c:otherwise>
 </c:choose>
 
-<form action="ProductServlet?action=insertNewProduct" method="post" style="margin-top:300px;">
+<form action="ProductServlet?action=insertNewProduct" method="post"  class = "insertproductform">
 
-	<input type="text" name="name" class="input" placeholder="name" required>
+	<input type="text" name="name" class="input" placeholder="product" required>
+	
+	<input type="text" class="input" name="weight" value="100gr">
 	
 	<input type="text" name="quantity" class="input" placeholder="quantity" required>
 
 	<input type="text" class="input" name="price" placeholder="price">
 	
-	<input type="text" class="input" name="weight" placeholder="100gr">
+	
 	
 	<input type="submit" value="Insert" class="submit">
 </form>
