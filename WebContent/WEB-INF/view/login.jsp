@@ -48,7 +48,8 @@
 }
 </style>
 </head>
-<body id="home">
+<body>
+<div id="home">
 <nav>
 <div class="topnav" id="myTopnav">
   <a href="ProductServlet?action=viewAll">C S</a>
@@ -63,7 +64,7 @@
 </div>
 </nav>
 <div id= "heading1"></div>
- <!-- end of home -->
+ </div><!-- end of home -->
 <main>
 
 <c:if test="${cart != null && !cart.isEmpty()}">
@@ -134,7 +135,6 @@
 </div>
 
 </main><!-- end of main -->
-
 
 
 <div id="aboutcontact" class = "clearfix">
