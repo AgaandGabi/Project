@@ -79,56 +79,33 @@
 				<th>Price</th>
 				<th>Update</th>
 				<th>Delete</th>
-				
 				<th>Shop</th>
 			</tr>
 			<c:forEach var="product" items="${listOfProducts}" varStatus="status" >
 				<tr>
-					<td><input type="text" name="name" value="${product.name}" class="name"></td>
-					 <td><input type="text" name="weight" value="${product.weight}" class="small" ></td>
-					 <td><input type="text" name="quantity" value="${product.quantity}" class="small"></td>
+					<td><input type="text" name="name" placeholder="${product.name}" class="name"></td>
+					 <td><input type="text" name="weight" placeholder="${product.weight}" class="small" ></td>
+					 <td><input type="text" name="quantity" placeholder="${product.quantity}" class="small"></td>
 					 <td><input type="text" name="price" 
 			             value="<fmt:formatNumber type='number'
-		              	 maxFractionDigits='2' value='${product.price}'>
-			             </fmt:formatNumber>" class="small"></td>
-					<td><a href="ProductServlet?action=updateProduct&productId=${product.id}&name=${name}"><img src ="images/update.png" alt ="update item"></a></td>
+		              	 maxFractionDigits='2' >
+			             </fmt:formatNumber>" class="small" placeholder="${product.price}"></td>
+			        
+					<td><a href="ProductServlet?action=updateProduct&productId=${product.id}"><img src ="images/update.png" alt ="update item"></a></td>
 					<td><a href="ProductServlet?action=delete&productId=${product.id}"><img src ="images/delete.png" alt ="delete item"></a></td>
-					<td><a href="ProductServlet?action=addToCart&productId=${product.id}"><img src ="images/addtocart.png" alt ="add to cart"></a></td>
+					<td><a href="ProductServlet?action=addToCart&productId=${product.id}"><img src ="images/addtocart.png" alt ="add to cart"></a></td>	
 				</tr>
 			</c:forEach>
-			<p><input type="submit" value="Submit"/></p> 
 		</table>
-			
+		
 		</form>
 	</c:otherwise>
 </c:choose>
 
-<form action="ProductServlet?action=insertNewProduct" method="post"  class = "insertproductform">
-
-	<input type="text" name="name" class="input" placeholder="product" required>
-	
-	<input type="text" class="input" name="weight" value="100gr">
-	
-	<input type="text" name="quantity" class="input" placeholder="quantity" required>
-
-	<input type="text" class="input" name="price" placeholder="price">
-	
-	
-	
-	<input type="submit" value="Insert" class="submit">
-</form>
-
-<p style="margin-top:20px; color: white;">
-<a href="ProductServlet?action=showInsertForm">Insert New Product</a>
-</p>
-<p style="margin-top:20px; color: white;">
-<a href="ProductServlet?action=showSearchForm">Search</a>
-</p>
+<a href='' class = "insertproduct"  onclick='ShowPopup("ProductServlet?action=showInsertForm");' title='Pop Up'>Insert new product</a>
 
 
 <!-- end of displayProduct -->
-
-
 </main><!-- end of main -->
  </div> <!-- end of home -->
 <div id="aboutcontact" class = "clearfix">
@@ -170,6 +147,17 @@ function myFunction() {
     }
 }
 </script>
+
+		<script type="text/javascript">  
+        var popup = window;
+        function ShowPopup(url) {
+            popup = window.open(url, "Popup", "toolbar=no,scrollbars=no,location=no,statusbar=no,menubar=no,resizable=0,width=400,height=700,left = 30%,top = 262");
+            
+		
+        }
+    	
+         
+    </script>
 <script type="text/javascript">
     var divHeight = document.getElementById('home').offsetHeight;
     var w = window.innerWidth;

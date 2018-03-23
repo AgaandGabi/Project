@@ -15,11 +15,11 @@ public class Product {
 	@Column
 	private String name;
 	@Column
-	private BigDecimal price;
+	private BigDecimal price = new BigDecimal(0.0);
 	@Column
-	private int quantity;
+	private int quantity = 0;
 	@Column
-	private int weight;
+	private int weight = 0;
 	
 	public Product() {}
 
@@ -30,6 +30,7 @@ public class Product {
 		this.price = price;
 		this.quantity = quantity;
 		this.weight = weight;
+		
 	}
 	public Product(String name, BigDecimal price, int quantity, int weight) {
 		super();

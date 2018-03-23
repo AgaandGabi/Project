@@ -376,7 +376,17 @@ input:focus, textarea:focus {
 
 
 /*start insert product form*/
-
+a.insertproduct{
+	display:block;
+	padding-top: 12px;
+	padding-bottom: 12px;
+	width: 50%;
+	text-align: center;
+	color:white;
+	margin:2px auto;
+	border:1px solid white;	
+	
+}
 .insertproductform{
 	width: 50%;
 	padding-top: 12px;
