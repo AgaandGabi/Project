@@ -171,22 +171,22 @@ public class ProductServlet extends HttpServlet {
 		
 		// Currently the update is returning the original data and saving it back to the DB, no changes are committed.
 		// The data that is changed in the form field for the record needs to be passed back to the update method.
-		
-		
+
 		System.out.println("in updateProduct method");
         int productId = Integer.parseInt(request.getParameter("productId"));
 		System.out.println("productId: " + productId);
 		Product product = productDao.getProductById(productId);
 		request.setAttribute("product", product);
 
-		
-		
 		String name = request.getParameter("name");
 		System.out.println("name: " + name);
 
 		BigDecimal price = new BigDecimal(request.getParameter("price"));
+		System.out.println("price: " + price);
 		int quantity = Integer.parseInt(request.getParameter("quantity"));
+		System.out.println("quantity: " + quantity);
 		int weight = Integer.parseInt(request.getParameter("weight"));
+		System.out.println("weight: " + weight);
 
 		
 	    Product productToUpdate = new Product(name,  price,  quantity, weight);
@@ -199,7 +199,7 @@ public class ProductServlet extends HttpServlet {
 				Product product = productDao.getProductById(productId);
 				request.setAttribute("product", product);
 		RequestDispatcher dispatcher = request.getRequestDispatcher(
-				"\\WEB-INF\\view\\displayProduct.jsp");
+				"\\WEB-INF\\view\\updateProduct.jsp");
 		dispatcher.forward(request, response);
 	}
 	
@@ -220,7 +220,7 @@ public class ProductServlet extends HttpServlet {
 		Product product = new Product(name, price, quantity, weight);
 		System.out.println("New product : " + product);
 		productDao.insertProduct(product);
-		response.sendRedirect("ProductServlet?action=viewall");
+		//response.sendRedirect("ProductServlet?action=viewall");
 	}
 
 	private void getAllProducts(HttpServletRequest request, 
